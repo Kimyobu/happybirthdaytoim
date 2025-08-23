@@ -1,22 +1,19 @@
 // trigger to play music in the background with sweetalert
 window.addEventListener('load', () => {
     Swal.fire({
-        title: 'Do you want to play music in the background?',
-        icon: 'warning',
+        title: 'คุณพร้อมหรือยัง?',
+        icon: 'question',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes',
-        cancelButtonText: 'No',
+        cancelButtonText: 'Yes',
     }).then((result) => {
-        if (result.isConfirmed) {
-            document.querySelector('.song').play();
-            animationTimeline();
-        } else {
-            animationTimeline();
-        }
+        document.querySelector('.song').play();
+        animationTimeline();
     });
 });
+
 
 
 // animation timeline
@@ -24,14 +21,14 @@ const animationTimeline = () => {
     // split chars that needs to be animated individually
     const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
     const hbd = document.getElementsByClassName("wish-hbd")[0];
+    const Splitter = new GraphemeSplitter()
+    textBoxChars.innerHTML = `<span>${
+        Splitter.splitGraphemes(textBoxChars.innerHTML).join("</span><span>")
+    }</span>`;
 
-    textBoxChars.innerHTML = `<span>${textBoxChars.innerHTML
-        .split("")
-        .join("</span><span>")}</span>`;
-
-    hbd.innerHTML = `<span>${hbd.innerHTML
-        .split("")
-        .join("</span><span>")}</span>`;
+    hbd.innerHTML = `<span>${
+        Splitter.splitGraphemes(hbd.innerHTML).join("</span><span>")
+    }</span>`;
 
     const ideaTextTrans = {
         opacity: 0,
