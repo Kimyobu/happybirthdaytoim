@@ -101,11 +101,20 @@ body {
   z-index: 1;
 }
 
-.six img {
-  display: inline-block;
+.profile-pictures {
+  display: inline-flex;
+  gap: 12px;
+  align-items: flex-end;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.six .profile-picture {
+  display: block;
   height: 350px;
   max-width: 100%;
-  /* height: auto; */
+  object-fit: cover;
+  border-radius: 6px;
 }
 
 .six .hat {
@@ -288,5 +297,9 @@ body {
   .nine p {
     font-size: 1.5rem;
     font-weight: lighter;
+  }
+
+  .six .profile-picture {
+    height: 220px;
   }
 }

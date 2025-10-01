@@ -184,7 +184,7 @@ const animationTimeline = () => {
         },
         0.2
     )
-    .from(
+    .staggerFrom(
         ".profile-picture",
         0.5, {
             scale: 3.5,
@@ -193,6 +193,7 @@ const animationTimeline = () => {
             y: -25,
             rotationZ: -45,
         },
+        0.15,
         "-=2"
     )
     .from(".hat", 0.5, {
